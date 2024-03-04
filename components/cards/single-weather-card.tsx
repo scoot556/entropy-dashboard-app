@@ -35,7 +35,7 @@ export const SingleWeatherCard = ({ weather }: WeatherCardProps) => {
                     <p>Feels like: {Math.round(weather?.main?.feels_like)}°C</p>
                     <p>Temperature Min: {Math.round(weather?.main?.temp_min)}°C</p>
                     <p>Temperature Max: {Math.round(weather?.main?.temp_max)}°C</p>
-                    <p>Humiditiy: {weather?.main?.humidity}s</p>
+                    <p>Humiditiy: {weather?.main?.humidity}</p>
                 </div>
                 <div className="py-2">
                     <p>Weather: {weather?.weather?.[0]?.main}, {weather?.weather?.[0]?.description}</p>

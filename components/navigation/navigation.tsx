@@ -3,9 +3,9 @@ import Link from "next/link";
 export const Navigation = () => {
     return (
         <>
-            <div className="bg-green-800 text-green-100 flex justify-between md:hidden">
-                <p className="text-xl p-2">Personal Dashboard</p>
-                <div className="flex items-center space-x-4 p-4">
+            <div className="bg-green-800 text-green-100 flex flex-col items-center justify-center md:hidden">
+                <p className="text-2xl pt-4">Personal Dashboard</p>
+                <div className="flex items-center space-x-4 p-4 w-full justify-evenly">
                 
                     <Link href="/weather" className="block py-2.5 px-4 rounded hover:text-white hover:bg-green-700">Weather</Link>
                     <Link href="/news" className="block py-2.5 px-4 rounded hover:text-white hover:bg-green-700">News</Link>

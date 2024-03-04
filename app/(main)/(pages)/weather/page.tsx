@@ -74,7 +74,7 @@ const WeatherPage = () => {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>Submit</Button>
+                    <Button type="submit" className="w-full" variant="primary" disabled={form.formState.isSubmitting}>Submit</Button>
                 </form>
             </Form>
            {weather && weather.length > 1 && (
@@ -84,7 +84,7 @@ const WeatherPage = () => {
                 ))}
             </div>
            )}
-           <div className="">
+           <div>
             {weather && weather?.name !== undefined && (
                     <SingleWeatherCard weather={weather} />
                 )}

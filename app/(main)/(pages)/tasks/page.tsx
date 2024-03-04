@@ -80,7 +80,7 @@ const TasksPage = () => {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>Submit</Button>
+                    <Button type="submit" className="w-full" variant="primary" disabled={form.formState.isSubmitting}>Submit</Button>
                 </form>
             </Form>
             {tasks && tasks.length === 0 ? (

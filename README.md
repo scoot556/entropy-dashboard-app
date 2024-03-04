@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+  
 
-First, run the development server:
+## Entropy Dashboard Assessment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is my submission, I'm using Next.js v14.1.1 with Node v18.18.2 and npm v10.5.0. This project encapsulates the requirements given in the specification document.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+These include the following
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ - Weather Page
+	 - Search via city and results listed
+	 - Use native geolocation
+	 - Detailed information about the current weather
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- News Page
+	- Displays current trending news articles
+	- Allows the user to select from a range of categories
+	- Able to follow links to the article on the respective media outlet
 
-## Learn More
+- Task/Todo List
+	- Uses localStorage to store the users tasks
+	- Three separate tables indicating the status of the task/todo item
+	- Updating via dropdown boxes on the status of the task
 
-To learn more about Next.js, take a look at the following resources:
+### Project Installation/Setup
+To setup the project locally to develop on you will need to ensure you have
+	-	Node v18.18.2
+	-	npm v10.5.0
+	-  Git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Once those have been acquired simply clone the repo to your desired destination and either open the folder up in a terminal or through a code editor.
+After that you will then need to do run `npm install`, this will install all the necessary dependencies required for this project.
+Make sure to add your own `.env.local` or `.env` file to the source directory to ensure you can receive the needed API calls. There is an example of this under the file `.env.example`.
+Once that is completed you will then need to run `npm run develop` to go into development mode or run `npm run build` which will build the application in which then you may run it using the `npm run start` command.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Technical Choices
+The technical choices I chose to utilise in this project are mainly vanilla Next.Js functions as it has a wide variety of server side rendering capabilities as well as client side. I used a component based UI library called shadcn/ui as it allows me to edit the components such as buttons, forms, labels, inputs, etc. to however I want. This allows for far greater customisation. On top of using shadcn/ui's form component it also uses zod and react-hook-form to ensure that forms are type safe and have the correct error handling without needing to stress too much. 

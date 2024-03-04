@@ -25,7 +25,7 @@ export const WeatherCard = ({ weather, setLocation }: WeatherCardProps) => {
                 <p>{weather?.lat}{weather?.lon && (",")}{weather?.lon}</p>
             </CardContent>
             <CardFooter>
-                <Button onClick={() => setLocation([weather?.lat, weather?.lon])} type="button" className="w-full">View</Button>
+                <Button onClick={() => setLocation([weather?.lat, weather?.lon])} type="button" className="w-full" variant="primary">View</Button>
             </CardFooter>
         </Card>
     );
