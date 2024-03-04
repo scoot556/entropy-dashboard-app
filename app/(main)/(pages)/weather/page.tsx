@@ -1,9 +1,9 @@
 "use client";
+import { SingleWeatherCard } from "@/components/cards/single-weather-card";
+import { WeatherCard } from "@/components/cards/weather-card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage, Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { fetchWeather } from "@/lib/fetchWeather";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -56,13 +56,14 @@ const WeatherPage = () => {
     }
 
     return (
-        <div className="p-10 flex-1">
+        <div className="flex-1 justify-center w-full items-center">
             <h1 className="text-3xl font-bold">Weather</h1>
             <Form {...form}>
                 <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4">
                     <FormField
                         control={form.control}
                         name="location"
+                        disabled={form.formState.isSubmitting}
                         render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Location</FormLabel>
@@ -73,47 +74,21 @@ const WeatherPage = () => {
                             </FormItem>
                         )}
                     />
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>Submit</Button>
                 </form>
             </Form>
            {weather && weather.length > 1 && (
-            <div className="flex grid-flow-col grid-rows-2 grid-cols-2 gap-2 justify-center items-center">
+            <div className="grid gap-4 justify-center mx-auto md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                 {weather.map((weather: any, index: any) => (
-                    <Card key={index} className="h-auto w-72">
-                        <CardHeader>
-                            <h1 className="text-2xl font-bold">{weather?.name}</h1>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="semi-bold">{weather?.country}{weather?.state ? `, ${weather?.state}` : null}</p>
-                            <p>{weather?.lat}{weather?.lon && (",")}{weather?.lon}</p>
-                        </CardContent>
-                        <CardFooter>
-                            <Button onClick={() => setLocation([weather?.lat, weather?.lon])} type="button" className="w-full">View</Button>
-                        </CardFooter>
-                    </Card>
+                    <WeatherCard weather={weather} setLocation={setLocation} key={index} />
                 ))}
             </div>
            )}
-           {weather && weather?.name !== undefined && (
-                <Card className="h-auto w-96">
-                    <CardHeader>
-                        <h1 className="text-2xl font-bold">{weather?.name}, {weather?.sys?.country}</h1>
-                    </CardHeader>
-                    <CardContent className="flex flex-col gap-4">
-                        <div className="grid grid-flow-row grid-cols-2">
-                            <p>Temperature: {Math.round(weather?.main?.temp)}°C</p>
-                            <p>Feels like: {Math.round(weather?.main?.feels_like)}°C</p>
-                            <p>Temperature Min: {Math.round(weather?.main?.temp_min)}°C</p>
-                            <p>Temperature Max: {Math.round(weather?.main?.temp_max)}°C</p>
-                            <p>Humiditiy: {weather?.main?.humidity}s</p>
-                        </div>
-                        <div>
-                            <p>Weather: {weather?.weather?.[0]?.main}, {weather?.weather?.[0]?.description}</p>
-                        </div>
-                    </CardContent>
-                    
-                </Card>
-            )}
+           <div className="">
+            {weather && weather?.name !== undefined && (
+                    <SingleWeatherCard weather={weather} />
+                )}
+            </div>
         </div>
     );
 }
