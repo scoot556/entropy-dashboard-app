@@ -53,6 +53,7 @@ const WeatherPage = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         setLocation(values.location);
+        form.reset();
     }
 
     return (

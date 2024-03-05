@@ -26,7 +26,7 @@ These include the following
 To setup the project locally to develop on you will need to ensure you have
 	-	Node v18.18.2
 	-	npm v10.5.0
-	-  Git
+  	-  Git
 
 Once those have been acquired simply clone the repo to your desired destination and either open the folder up in a terminal or through a code editor.
 After that you will then need to do run `npm install`, this will install all the necessary dependencies required for this project.
@@ -34,4 +34,4 @@ Make sure to add your own `.env.local` or `.env` file to the source directory to
 Once that is completed you will then need to run `npm run develop` to go into development mode or run `npm run build` which will build the application in which then you may run it using the `npm run start` command.
 
 ### Technical Choices
-The technical choices I chose to utilise in this project are mainly vanilla Next.Js functions as it has a wide variety of server side rendering capabilities as well as client side. I used a component based UI library called shadcn/ui as it allows me to edit the components such as buttons, forms, labels, inputs, etc. to however I want. This allows for far greater customisation. On top of using shadcn/ui's form component it also uses zod and react-hook-form to ensure that forms are type safe and have the correct error handling without needing to stress too much. 
+The technical choices I chose to utilise in this project are mainly vanilla Next.Js functions as it has a wide variety of server side rendering capabilities as well as client side. I used a component based UI library called shadcn/ui as it allows me to edit the components such as buttons, forms, labels, inputs, etc. to however I want. This allows for far greater customisation. On top of using shadcn/ui's form component it also uses zod and react-hook-form to ensure that forms are type safe and have the correct error handling without needing to stress too much.
