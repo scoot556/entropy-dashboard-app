@@ -12,6 +12,10 @@ import {
     PaginationPrevious,
   } from "@/components/ui/pagination"
 
+type Category = "general" | "sports" | "business" | "entertainment" | "health" | "science" | "technology";
+
+const categories: Category[] = ["general", "sports", "business", "entertainment", "health", "science", "technology"];
+
 const NewsPage = () => {
     const [news, setNews] = useState<any>([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -51,15 +55,13 @@ const NewsPage = () => {
         <div className="flex-1 space-y-4">
             <h1 className="text-3xl font-bold">News</h1>
             <div className="flex md:gap-2 md:flex-row lg:gap-2 w-full justify-center flex-col gap-4">
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 grid-cols-1">
-                    <Button onClick={() => handleCategoryChange("sports")} variant="primary">Sports</Button>
-                    <Button onClick={() => handleCategoryChange("business")} variant="primary">Business</Button>
-                    <Button onClick={() => handleCategoryChange("entertainment")} variant="primary">Entertainment</Button>
-                    <Button onClick={() => handleCategoryChange("health")} variant="primary">Health</Button>
-                    <Button onClick={() => handleCategoryChange("science")} variant="primary">Science</Button>
-                    <Button onClick={() => handleCategoryChange("technology")} variant="primary">Technology</Button>
+                <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-4 grid-cols-1">
+                    {categories.map((item) => {
+                        return (
+                            <Button onClick={() => handleCategoryChange(item)} variant="primary" key={item} disabled={category === item}>{item.charAt(0).toUpperCase() + item.slice(1)}</Button>
+                        );
+                    })}
                 </div>
-                <Button onClick={() => handleCategoryChange("general")} variant="primary" className="">Reset</Button>
             </div>
             {news && news.length !== 0 ? (
                 <>
@@ -71,7 +73,7 @@ const NewsPage = () => {
                         })}
                     </div>
                     <Pagination>
-                            <PaginationContent>
+                            <PaginationContent className="flex flex-wrap justify-center">
                                 {news.pages > 1 && (
                                     <>
                                         <PaginationItem>
@@ -106,9 +108,8 @@ const NewsPage = () => {
                                 )}
                         </PaginationContent>
                     </Pagination>
-                    </>
+                </>
             ):(
-                // <div className="flex flex-col gap-4">
                 <div className="grid gap-8 md:grid-cols-2">
                     {Array.from({ length: 10 }).map((_, index) => (
                         <div className="flex flex-col space-y-3" key={index}>
