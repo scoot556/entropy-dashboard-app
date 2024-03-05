@@ -56,10 +56,10 @@ const WeatherPage = () => {
     }
 
     return (
-        <div className="flex-1 justify-center w-full items-center">
+        <div className="w-full flex-1 justify-center items-center">
             <h1 className="text-3xl font-bold">Weather</h1>
             <Form {...form}>
-                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4">
+                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4 w-96 flex flex-col mx-auto">
                     <FormField
                         control={form.control}
                         name="location"
@@ -84,7 +84,7 @@ const WeatherPage = () => {
                 ))}
             </div>
            )}
-           <div>
+           <div className="w-96 mx-auto">
             {weather && weather?.name !== undefined && (
                     <SingleWeatherCard weather={weather} />
                 )}
