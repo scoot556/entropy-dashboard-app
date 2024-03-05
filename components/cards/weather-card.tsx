@@ -22,7 +22,7 @@ export const WeatherCard = ({ weather, setLocation }: WeatherCardProps) => {
             </CardHeader>
             <CardContent>
                 <p className="semi-bold">{weather?.country}{weather?.state ? `, ${weather?.state}` : null}</p>
-                <p>{weather?.lat}{weather?.lon && (",")}{weather?.lon}</p>
+                <p className="text-sm">{weather?.lat}{weather?.lon && (", ")}{weather?.lon}</p>
             </CardContent>
             <CardFooter>
                 <Button onClick={() => setLocation([weather?.lat, weather?.lon])} type="button" className="w-full" variant="primary">View</Button>
