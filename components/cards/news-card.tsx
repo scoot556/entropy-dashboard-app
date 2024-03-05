@@ -27,17 +27,23 @@ export const NewsCard = ({ article }: { article: Article }) => {
     const formattedDateTime = new Date(article.publishedAt).toLocaleString('en-AU', options);
 
     return (
-        <Card className="w-full divide-y-2">
-            <CardHeader>
+        <Card className={
+            article.description ? "w-full divide-y-2 flex flex-col h-fit" : "w-full divide-y-2 justify-between flex flex-col h-full"
+        }>
+            <CardHeader className={
+                article.description ? "p-4" : "p-4 pb-2 h-auto"
+            }>
                 <h1 className="text-2xl font-bold">{article.title}</h1>
             </CardHeader>
             {article.description && (
                 <CardContent>
-                    <p>{article.description}</p>
+                    <p className="py-4">{article.description}</p>
                 </CardContent>
             )}
-            <CardFooter className="justify-between p-4 align-bottom">
-                <span>{article.author}, {formattedDateTime}</span>
+            <CardFooter className={
+                article.description ? "justify-between p-4 align-bottom" : "p-4 pt-2 h-auto justify-between align-bottom"
+            }>
+                <span className="text-sm md:text-base">{article.author ? `${article.author}, ${formattedDateTime}` : `${formattedDateTime}`}</span>
                 <Button variant="outline"><Link href={article.url} rel="noreferrer" target="_blank">Read More</Link></Button>
             </CardFooter>
        </Card>
