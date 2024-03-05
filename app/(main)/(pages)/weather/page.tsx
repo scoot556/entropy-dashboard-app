@@ -57,10 +57,10 @@ const WeatherPage = () => {
     }
 
     return (
-        <div className="w-full flex-1 justify-center items-center">
+        <div className="flex-1">
             <h1 className="text-3xl font-bold">Weather</h1>
             <Form {...form}>
-                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4 w-96 flex flex-col mx-auto">
+                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4 px-4 w-full md:w-96 flex flex-col mx-auto">
                     <FormField
                         control={form.control}
                         name="location"
@@ -79,13 +79,13 @@ const WeatherPage = () => {
                 </form>
             </Form>
            {weather && weather.length > 1 && (
-            <div className="grid gap-4 justify-center mx-auto md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+            <div className="grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1">
                 {weather.map((weather: any, index: any) => (
                     <WeatherCard weather={weather} setLocation={setLocation} key={index} />
                 ))}
             </div>
            )}
-           <div className="w-96 mx-auto">
+           <div className="md:w-96 mx-auto">
             {weather && weather?.name !== undefined && (
                     <SingleWeatherCard weather={weather} />
                 )}

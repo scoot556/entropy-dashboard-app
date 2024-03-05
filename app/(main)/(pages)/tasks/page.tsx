@@ -73,7 +73,7 @@ const TasksPage = () => {
         <div className="flex-1">
             <h1 className="text-3xl font-bold">Tasks</h1>
             <Form {...form}>
-                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4 w-96 flex flex-col mx-auto">
+                <form  onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 py-4 px-4 w-full md:w-96 flex flex-col mx-auto">
                     <FormField
                         control={form.control}
                         name="taskName"
